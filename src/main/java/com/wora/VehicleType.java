@@ -2,7 +2,7 @@ package com.wora;
 
 public enum VehicleType implements Drivable, Identifiable, Insurable {
 
-    CAR(4, "Gasoline") {
+    CAR(4, "Gasoline", 4) {
         @Override
         public void insure() {
             System.out.println("Car insurance is being processed");
@@ -14,7 +14,7 @@ public enum VehicleType implements Drivable, Identifiable, Insurable {
         }
     },
 
-    MOTORCYCLE(2, "Gasoline") {
+    MOTORCYCLE(2, "Gasoline", 6) {
         @Override
         public void insure() {
             System.out.println("Motorcycle car insurance is being processed.");
@@ -40,10 +40,16 @@ public enum VehicleType implements Drivable, Identifiable, Insurable {
 
     private final Integer numberOfWheels;
     private final String fuelType;
+    private final Integer numberOfSeats;
 
     VehicleType(Integer numberOfWheels, String fuelType) {
+        this(numberOfWheels, fuelType, 5);
+    }
+
+    VehicleType(Integer numberOfWheels, String fuelType, Integer numberOfSeats) {
         this.numberOfWheels = numberOfWheels;
         this.fuelType = fuelType;
+        this.numberOfSeats = numberOfSeats;
     }
 
     public Integer getNumberOfWheels() {
